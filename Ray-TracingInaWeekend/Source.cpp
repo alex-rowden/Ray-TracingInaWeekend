@@ -1,7 +1,13 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
-#include "vec3.h"
+#include "Ray.h"
+
+vec3 color(const Ray& r) {
+	vec3 unit_direction = r.direction()/r.direction().length();
+	float t = .5 * (unit_direction.y() + 1);
+	return vec3(1, 1, 1) * (1 - t) + vec3(.5, .7, 1.0) * t;
+}
 
 int main() {
 	std::filebuf fb;

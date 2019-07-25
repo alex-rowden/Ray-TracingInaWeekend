@@ -18,9 +18,13 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="vec3.cpp" />
+    <ClCompile Include="Ray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

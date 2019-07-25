@@ -22,15 +22,32 @@ public:
 	inline const float operator[](int i) const { return e[i]; }
 	inline const float& operator[](int i) { return e[i]; }
 
-	inline vec3& operator+=(const vec3& v2);
-	inline vec3& operator-=(const vec3& v2);
-	inline vec3& operator*=(const vec3& v2);
-	inline vec3& operator/=(const vec3& v2);
-	inline vec3& operator*=(const float t);
-	inline vec3& operator/=(const float t);
+	vec3& operator+=(const vec3& v2);
+	vec3& operator-=(const vec3& v2);
+	vec3& operator*=(const vec3& v2);
+	vec3& operator/=(const vec3& v2);
+	vec3& operator*=(const float t);
+	//inline const vec3& operator*=(float t);
+	vec3& operator/=(const float t);
 
 	inline float length() const { return sqrt(e[0] * e[0] + e[1] * e[1] + e[2] * e[2]); }
 	inline float squared_length() const { return e[0] * e[0] + e[1] * e[1] + e[2] * e[2]; }
 	inline void normalize();
 };
+
+inline vec3 unit_vector(vec3 v);
+
+inline vec3 operator+(vec3 v1, const vec3& v2) { v1 += v2; return v1; };
+inline vec3 operator-(vec3 v1, const vec3& v2) { v1 -= v2; return v1; };
+inline vec3 operator*(vec3 v1, const vec3& v2) { v1 *= v2; return v1; };
+inline vec3 operator/(vec3 v1, const vec3& v2) { v1 /= v2; return v1; };
+inline vec3 operator*(vec3 v1, float t) { v1 *= t; return v1; };
+inline vec3 operator*(const float t, vec3& v1) { v1 *= t; return v1; };
+//inline vec3 operator*(float t, const vec3& v1) { v1 *= t; return v1; };
+inline vec3 operator/(vec3 v1, const float t) { v1 /= t; return v1; };
+
+inline float dot(const vec3& v1, const vec3& v2);
+
+inline vec3 cross(const vec3& v1, const vec3& v2);
+
 
